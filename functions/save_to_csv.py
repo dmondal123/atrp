@@ -2,7 +2,7 @@ import pandas as pd
 import logging
 
 # Function to save the dataset to CSV
-def save_to_csv(dataset, filename="synthetic_software_package_dataset.csv"):
+def save_to_csv(dataset, filename):
     try:
         # Convert the dataset (list of dictionaries) to a DataFrame
         df = pd.DataFrame(dataset)
