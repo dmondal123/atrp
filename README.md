@@ -1,0 +1,1 @@
+Setup an Anaconda environment with python==3.12.6
