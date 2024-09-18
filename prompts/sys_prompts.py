@@ -44,7 +44,7 @@ The output should start with :
 
 # Define prompt for generating the dataset
 sys_message_2 = """
-Generate a JSON dataset for two software packages: one legitimate and one suspicious. Each package should include the following fields:
+Generate a JSON dataset for two software packages: 60 percent legitimate and rest suspicious. Each package should include the following fields:
 
 - package_name: The name of the software package.
 - version_number: The version number of the package.
