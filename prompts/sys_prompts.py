@@ -44,7 +44,8 @@ The output should start with :
 
 # Define prompt for generating the dataset
 sys_message_2 = """
-Generate a JSON dataset for two software packages: 60 percent legitimate and rest suspicious. Each package should include the following fields:
+INSTRUCTIONS:
+Generate a JSON dataset for one software package: either legitimate or suspicious with equal probability. Each package should include the following fields:
 
 - package_name: The name of the software package.
 - version_number: The version number of the package.
@@ -66,18 +67,18 @@ Generate a JSON dataset for two software packages: 60 percent legitimate and res
 - contains_network_related_keywords: Whether network-related keywords are present (true/false).
 - new_external_dependencies: Whether the current package introduces new external dependencies (true/false).
 - sensitive_keywords_detected: Whether sensitive keywords are detected (true/false).
-- anomalous_behavior_score: A float score indicating how much the package deviates from previous versions.
+- anomalous_behavior_score: A float score indicating how much the package deviates from previous versions with values between 0 and 1. 1 being most suspicious and 0 being legitimate.
 - suspicious_file_extension: Whether the package contains files with suspicious extensions (true/false).
 - is_suspicious: Whether the package is suspicious (true/false).
 
-Make sure that:
-1. At least one package is legitimate with a clean description and common scripts.
-2. The other packages may be malicious with hidden or harmful functionality, and the description should clearly reflect its malicious nature.
-
-Ensure the JSON structure is correct and well-formed.
-
-The output should start with :
+RULES:
+1. There should be a packages that is legitimate with a clean description and common scripts or some package that is malicious with hidden or harmful functionality.
+2. Ensure that you only generate a JSON object with no additional text.
+3. You should sometimes generate a malicious package and sometimes a legitimate package with EQUAL probability.
+4. Ensure the JSON structure is correct and well-formed. Also ensure proper usage of brackets.
+5. The output should ALWAYS start with :
 ```json
-.......
+{.......}
 ```
+Take a deep breath and think in a step by step manner.
 """
